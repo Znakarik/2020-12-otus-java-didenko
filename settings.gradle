@@ -1,0 +1,3 @@
+rootProject.name = '2020-12-otus-java-didenko'
+include 'hw01-gradle'
+
