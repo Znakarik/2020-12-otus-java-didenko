@@ -28,7 +28,7 @@ public class Runner {
         return reporter;
     }
 
-    public void createTestsInClass() {
+    public void createTestsForClass() {
         List<Method> before = getMethodsByAnnotation(Before.class);
         List<Method> after = getMethodsByAnnotation(After.class);
         List<Method> tests = getMethodsByAnnotation(ru.znakarik.otus.annotations.Test.class);

@@ -18,7 +18,7 @@ public class TestRunner {
         Arrays.asList(testClasses).forEach(
                 testClass -> {
                     runner.setTestClass(testClass);
-                    runner.createTestsInClass();
+                    runner.createTestsForClass();
                     runner.startTests();
                     runner.createReporter();
                     runner.getReporter().printAllExceptions();
