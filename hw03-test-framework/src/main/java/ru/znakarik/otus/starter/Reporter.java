@@ -9,7 +9,7 @@ public class Reporter {
         this.tests = tests;
     }
 
-    public void printAllExceptions() {
+    public void report() {
         this.tests.forEach(test -> {
             int failed = 0;
             int passed = 0;

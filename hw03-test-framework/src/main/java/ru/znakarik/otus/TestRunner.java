@@ -21,7 +21,7 @@ public class TestRunner {
                     runner.createTestsForClass();
                     runner.startTests();
                     runner.createReporter();
-                    runner.getReporter().printAllExceptions();
+                    runner.getReporter().report();
                 }
         );
     }
