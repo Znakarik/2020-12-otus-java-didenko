@@ -13,16 +13,16 @@ public class Reporter {
         this.tests.forEach(test -> {
             int failed = 0;
             int passed = 0;
-            if (!test.isPassed()) {
+            if (test.isPassed()) {
+                passed++;
+                System.out.println("Тест " + test.getTest().getName() + " успешный");
+            } else {
                 failed++;
                 System.out.println("В тесте " + test.getTest().getName() + " ошибки: ");
                 test.getExceptions().forEach(e -> {
                     System.out.println(e.getCause());
                     System.out.println(e.getCause().getStackTrace()[0]);
                 });
-            } else {
-                passed++;
-                System.out.println("Тест " + test.getTest().getName() + " успешный");
             }
             System.out.println("Кол-во запущенных тестов в " + test.getClass() + ": " + tests.size());
             System.out.println("Failed: " + failed);

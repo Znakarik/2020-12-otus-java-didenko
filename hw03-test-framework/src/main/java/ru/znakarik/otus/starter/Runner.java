@@ -2,7 +2,6 @@ package ru.znakarik.otus.starter;
 
 import ru.znakarik.otus.annotations.After;
 import ru.znakarik.otus.annotations.Before;
-import ru.znakarik.otus.annotations.Test;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class Runner {
     private Class<?> testClass;
-    private List<ru.znakarik.otus.starter.Test> testList;
+    private List<Test> testList;
     private Reporter reporter;
 
     public void setTestClass(Class<?> testClass) {
@@ -32,11 +31,11 @@ public class Runner {
     public void createTestsInClass() {
         List<Method> before = getMethodsByAnnotation(Before.class);
         List<Method> after = getMethodsByAnnotation(After.class);
-        List<Method> tests = getMethodsByAnnotation(Test.class);
-        List<ru.znakarik.otus.starter.Test> testList = new ArrayList<>();
+        List<Method> tests = getMethodsByAnnotation(ru.znakarik.otus.annotations.Test.class);
+        List<Test> testList = new ArrayList<>();
         tests.forEach(test -> {
             try {
-                testList.add(new TestImpl(before, after, test, this.testClass.getConstructor().newInstance()));
+                testList.add(new Test(before, after, test, this.testClass.getConstructor().newInstance()));
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
                 e.printStackTrace();
             }
