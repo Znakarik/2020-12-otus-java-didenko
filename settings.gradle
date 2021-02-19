@@ -1,4 +1,5 @@
 rootProject.name = '2020-12-otus-java-didenko'
 include 'hw01-gradle'
 include 'hw02-collections'
+include 'hw05-dinamic-logging'
 
